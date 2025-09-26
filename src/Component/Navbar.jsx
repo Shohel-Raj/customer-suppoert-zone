@@ -17,7 +17,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-base-100 shadow-sm  w-full z-50">
+    <div className="navbar  w-full z-50">
       {/* Logo */}
       <div className="navbar-start w-4/12 md:w-1/4">
         <a className="btn btn-ghost text-xl px-0">SupportSphere</a>

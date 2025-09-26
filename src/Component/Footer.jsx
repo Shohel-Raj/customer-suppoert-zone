@@ -3,12 +3,14 @@ import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa6";
 import { IoLogoFacebook } from "react-icons/io";
 import { MdOutlineMail } from "react-icons/md";
+import Container from "./Container";
 
 const Footer = () => {
   return (
     <>
-      <footer className="bg-black text-gray-300  py-12">
-        <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 border-b border-gray-700 pb-10">
+      <footer className="bg-black text-gray-300  pt-10">
+        <Container>
+          <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 border-gray-700 pb-5">
           {/* Company Info */}
           <div>
             <h2 className="text-white font-bold text-lg mb-2">
@@ -126,11 +128,13 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-        </div>
+        </div>   
+        </Container>
+     
 
         {/* Bottom Bar */}
-        <div className="text-center text-xs text-gray-500 mt-6">
-          © 2025 CS — Ticket System. All rights reserved.
+        <div className="text-center border-t py-3 text-xs text-gray-500 ">
+          © 2025 SupportSphere. All rights reserved.
         </div>
       </footer>
     </>
