@@ -1,16 +1,119 @@
-# React + Vite
+# React Interview Q&A
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## 1. What is JSX, and why is it used?
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Answer:**  
+JSX stands for **JavaScript XML**. It allows developers to write HTML-like syntax inside JavaScript, which makes UI creation more intuitive. JSX is then compiled into `React.createElement()` calls under the hood.  
 
-## React Compiler
+✅ Example:
+```jsx
+const element = <h1>Hello, World!</h1>;
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+without jsx
 
-## Expanding the ESLint configuration
+const element = React.createElement("h1", null, "Hello, World!");
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```
+## 2. What is the difference between State and Props?
+
+**Answer:**  
+i. State
+
+Managed within a component (internal).Mutable (can be updated using setState or useState).Used for dynamic, interactive data.
+
+ii. Props
+
+Passed from parent to child (external).
+Immutable (read-only).Used to make components reusable. 
+
+✅ Example:
+```jsx
+function Child({ message }) {
+  return <p>{message}</p>;
+}
+
+function Parent() {
+  return <Child message="Hello from Parent!" />;
+}
+
+```
+## 3. What is the useState hook, and how does it work?
+
+**Answer:**  
+useState is a React Hook that allows functional components to hold and update state.It returns two values:
+
+i.The state variable.
+
+ii.A function to update it.
+
+✅ Example:
+```jsx
+import { useState } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increase</button>
+    </div>
+  );
+}
+```
+
+## 4. How can you share state between components in React?
+
+**Answer:**  
+i. Lift state up to the nearest common parent and pass via props.
+
+ii. Use Context API for global state.
+
+iii. Use state management libraries (Redux, Zustand, etc.) for large apps
+
+✅ Example:
+```jsx
+function Child({ value, setValue }) {
+  return (
+    <button onClick={() => setValue(value + 1)}>
+      Increase in Child (Current: {value})
+    </button>
+  );
+}
+
+function Parent() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>Count in Parent: {count}</p>
+      <Child value={count} setValue={setCount} />
+    </div>
+  );
+}
+```
+
+## 5. How is event handling done in React?
+
+**Answer:**  
+i. Event names use camelCase (e.g., onClick, onChange).
+
+ii. Handlers are passed as functions.
+
+iii. React uses Synthetic Events for cross-browser support.
+
+✅ Example:
+```jsx
+function Button() {
+  function handleClick() {
+    alert("Button clicked!");
+  }
+
+  return <button onClick={handleClick}>Click Me</button>;
+}
+
+
+
+
