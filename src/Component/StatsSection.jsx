@@ -2,10 +2,10 @@ import React from "react";
 import leftImg from "../assets/left.png";
 import rightImg from "../assets/right.png"; // make sure you actually have right.png
 
-const StatsSection = () => {
+const StatsSection = ({resolveTask,processTask}) => {
   const stats = [
-    { title: "In-Progress", value: 0, gradient: "bg-gradient-to-r from-purple-500 to-violet-500" },
-    { title: "Resolved", value: 0, gradient: "bg-gradient-to-r from-green-500 to-teal-500" },
+    { title: "In-Progress", value:processTask, gradient: "bg-gradient-to-r from-purple-500 to-violet-500" },
+    { title: "Resolved", value: resolveTask, gradient: "bg-gradient-to-r from-green-500 to-teal-500" },
   ];
 
   return (
@@ -19,7 +19,7 @@ const StatsSection = () => {
           <img
             src={leftImg}
             alt="pattern-left"
-            className="absolute bottom-0 left-0 w-24 opacity-20"
+            className="absolute top-0 right-0 w-24 opacity-20"
           />
           <img
             src={rightImg}
